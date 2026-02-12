@@ -1,2 +1,0 @@
-# PairProgramming
-Pair Programming exercise
