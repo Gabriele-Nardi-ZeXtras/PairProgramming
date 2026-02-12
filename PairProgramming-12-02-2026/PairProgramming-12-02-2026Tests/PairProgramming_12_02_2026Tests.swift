@@ -102,11 +102,11 @@ struct PairProgramming_12_02_2026Tests {
     
     @Test func characterCantDealDamageToSelf() {
         let character = Character()
-        let action = 
+        let actionsRepo = ActionRepoMock()
         let damage = Int.random(in: 1...100)
+        let action = actionsRepo.act(.attack(damage), from: character, to: character)
         
         
-        
-        #expect(character.health == 1000)
+        // TODO: End the test case
     }
 }

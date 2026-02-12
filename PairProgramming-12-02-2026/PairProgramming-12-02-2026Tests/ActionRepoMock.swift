@@ -8,6 +8,15 @@
 import Foundation
 import PairProgramming_12_02_2026
 
-struct ActionRepoMock: ActionRepository {
+struct ActionRepoMock: ActionsRepository {
     
+    struct Result {
+        // TODO: Implements
+    }
+    
+    typealias ActionResult = Result
+
+    func act(_ action: Action, from: Character, to: Character) -> Result {
+        Result()
+    }
 }
