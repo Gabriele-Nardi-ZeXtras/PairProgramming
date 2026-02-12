@@ -38,7 +38,7 @@ struct PairProgramming_12_02_2026Tests {
         let character = Character()
         let damage = Int.random(in: 1...999)
         
-        character.receive(damage: damage)
+        character.takeDamage(damage)
         
         #expect(character.health < 1000 && character.health > 0)
         #expect(character.isAlive)
@@ -47,8 +47,44 @@ struct PairProgramming_12_02_2026Tests {
     @Test func characterShouldDie() {
         let character = Character()
         let damage = Int.random(in: 1000...2000)
-        character.receive(damage: damage)
+        character.takeDamage(damage)
         
+        #expect(character.health == 0)
+        #expect(!character.isAlive)
+    }
+
+    @Test func characterReceiveHeal() {
+        let character = Character()
+        let startedHealth = Int.random(in: 1...100)
+        character.health = startedHealth
+        let cure = Int.random(in: 1...800)
+        
+        character.takeHeal(cure)
+        
+        #expect(character.health > startedHealth && character.health < 1000)
+        #expect(character.isAlive)
+    }
+    
+    @Test func characterShouldNotHealAboveMax() {
+        let character = Character()
+        let startedHealth = Int.random(in: 900...1000)
+        character.health = startedHealth
+        let cure = Int.random(in: 100...800)
+        
+        character.takeHeal(cure)
+        
+        #expect(character.health > startedHealth && character.health == 1000)
+        #expect(character.isAlive)
+    }
+    
+    @Test func characterShouldNotHealAboveDied() {
+        let character = Character()
+        character.health = 0
+        let cure = Int.random(in: 100...800)
+        
+        character.takeHeal(cure)
+        
+        #expect(character.health == 0)
         #expect(!character.isAlive)
     }
 }
