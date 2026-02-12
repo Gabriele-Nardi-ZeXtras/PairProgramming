@@ -7,7 +7,7 @@
 
 import Foundation
 
-class Character {
+public class Character {
     var health: Int = 1000 {
         didSet {
             isAlive = health > 0

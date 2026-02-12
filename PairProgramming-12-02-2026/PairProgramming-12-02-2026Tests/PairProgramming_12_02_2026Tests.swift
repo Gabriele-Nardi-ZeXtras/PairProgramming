@@ -11,6 +11,7 @@ import Testing
 struct PairProgramming_12_02_2026Tests {
     
 //    Iteration One
+    
 //    All Characters, when created, have:
 //
 //    Health, starting at 1000
@@ -86,5 +87,26 @@ struct PairProgramming_12_02_2026Tests {
         
         #expect(character.health == 0)
         #expect(!character.isAlive)
+    }
+    
+//    Iteration Two
+    
+//    A Character cannot Deal Damage to itself.
+//
+//    A Character can only Heal itself.
+//
+//    When dealing damage:
+//
+//    If the target is 5 or more Levels above the attacker, Damage is reduced by 50%
+//    If the target is 5 or more Levels below the attacker, Damage is increased by 50%
+    
+    @Test func characterCantDealDamageToSelf() {
+        let character = Character()
+        let action = 
+        let damage = Int.random(in: 1...100)
+        
+        
+        
+        #expect(character.health == 1000)
     }
 }
